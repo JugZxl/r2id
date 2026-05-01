@@ -1,6 +1,3 @@
-
-本包基于官方 CLIP-ReID 工程做最小侵入式集成。训练代码不改；新增一个 R2ID 测试入口。
-
 ## 新增/修改文件
 
 - `utils/r2id_infer_plugin.py`：BIO -> UST-Fusion -> STG-AQE -> final UST-Fusion 插件。
@@ -90,22 +87,3 @@ BIO + UST + STG-AQE：
 R2ID.ENABLE True META.ST_HIST.ENABLE True META.ST_HIST.NPZ_PATH /path/to/st.npz META.AQE.ST_GUIDED True
 ```
 
-Fixed-ST 对照：
-
-```bash
-ST.UNCERTAINTY_METHOD fixed
-```
-
-UST-linear / UST-sqrt：
-
-```bash
-ST.UNCERTAINTY_METHOD linear
-# 或
-ST.UNCERTAINTY_METHOD sqrt
-```
-
-## 5. 注意
-
-- `model.stmeta` 没有被接入这个插件版；它属于训练期/旧实验逻辑，不是本文的 test-time 主链路。
-- `parse_frame_ids()` 和 `build_st_histogram.py` 的 MSMT17 时间编码保持一致：`date*100000 + tod_code*10000 + frame`。
-- 官方 CLIP-ReID 的 `TEST.FEAT_NORM: yes` 下，欧氏距离与 cosine 排序等价；R2ID 插件内部使用 normalized cosine similarity，再输出 distance。

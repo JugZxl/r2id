@@ -1,0 +1,25 @@
+# datasets / generated files
+datasets/
+logs/
+npz/
+
+# model weights / large artifacts
+*.pth
+*.pt
+*.tar
+*.ckpt
+*.npz
+*.zip
+*.rar
+
+# python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# editor / system
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

@@ -1,0 +1,9 @@
+Integrated R2ID plugin into official CLIP-ReID. Added files:
+  + utils/r2id_infer_plugin.py
+  + utils/st_histogram_fusion.py
+  + tools/build_st_histogram.py
+  + processor/processor_clipreid_r2id.py
+  + test_clipreid_r2id.py
+  + R2ID_INTEGRATION_README.md
+Modified:
+  * config/defaults.py: added R2ID/META/ST/BIO nodes
